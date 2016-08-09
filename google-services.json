@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "342629030857",
+    "firebase_url": "https://evergreen-97e4a.firebaseio.com",
+    "project_id": "evergreen-97e4a",
+    "storage_bucket": "evergreen-97e4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342629030857:android:00cea8769761b122",
+        "android_client_info": {
+          "package_name": "com.ramadhan.robby.indoorgarden"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342629030857-lmp7bkbo28n7g40fbavtaiit05s62tdt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ramadhan.robby.indoorgarden",
+            "certificate_hash": "0E3A9A185678B81AC73BBB64095AC3907B87DF33"
+          }
+        },
+        {
+          "client_id": "342629030857-ol20q0p515n8mg59n3oog4ifu10k8ins.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9LXcArZQTRSKjtt3Y04mESBMJu2FFA1s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342629030857-ol20q0p515n8mg59n3oog4ifu10k8ins.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
