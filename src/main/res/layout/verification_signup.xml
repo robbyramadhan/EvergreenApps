@@ -6,13 +6,13 @@ android:fitsSystemWindows="true">
 
 
 <LinearLayout
+    android:id="@+id/linear_layout_create_account_activity"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="56dp"
     android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:background="@color/colorPrimary">
+    android:paddingRight="24dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@ android:fitsSystemWindows="true">
             android:layout_below="@+id/imageView"
             android:id="@+id/viewName">
 
-            <EditText android:id="@+id/input_name"
+            <EditText android:id="@+id/edit_text_username_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
@@ -50,7 +50,7 @@ android:fitsSystemWindows="true">
             android:layout_height="wrap_content"
             android:layout_below="@+id/viewName"
             android:id="@+id/viewLabel">
-            <EditText android:id="@+id/input_email"
+            <EditText android:id="@+id/edit_text_email_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -65,14 +65,14 @@ android:fitsSystemWindows="true">
             android:layout_below="@+id/viewLabel"
             android:id="@+id/viewPassword">
 
-            <EditText android:id="@+id/input_password"
+            <EditText android:id="@+id/edit_text_password_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Password"/>
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.v7.widget.AppCompatButton
+        <Button
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -80,7 +80,9 @@ android:fitsSystemWindows="true">
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:text="Create Account"
-            android:layout_below="@+id/viewPassword" />
+            android:layout_below="@+id/viewPassword"
+            android:background="@color/colorPrimary"
+            android:onClick="onCreateAccountPressed"/>
 
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"

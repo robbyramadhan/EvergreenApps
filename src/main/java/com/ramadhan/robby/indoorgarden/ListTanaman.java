@@ -55,7 +55,8 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ListTanaman.this);
-                builder.setTitle("Add New Plant");
+                builder.setTitle("Add New Module");
+
                 builder.setItems(R.array.tanaman, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
