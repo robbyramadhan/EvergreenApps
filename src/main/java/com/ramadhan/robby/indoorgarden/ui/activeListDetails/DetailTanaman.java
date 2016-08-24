@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.ui.activeListDetails;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -18,6 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ramadhan.robby.indoorgarden.ConnectBT;
+import com.ramadhan.robby.indoorgarden.ui.activeLists.InstruksiDetail;
+import com.ramadhan.robby.indoorgarden.R;
+import com.ramadhan.robby.indoorgarden.ui.modules.SensorRecord;
 
 import java.util.ArrayList;
 import java.util.Set;

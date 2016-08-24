@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.ui.activeListDetails;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,14 +11,18 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.client.Firebase;
+import com.ramadhan.robby.indoorgarden.ui.activeLists.AdapterTanaman;
+import com.ramadhan.robby.indoorgarden.DatabaseHandler;
+import com.ramadhan.robby.indoorgarden.R;
+import com.ramadhan.robby.indoorgarden.model.Tanaman;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,11 +59,15 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ListTanaman.this);
-                builder.setTitle("Add New Module");
+
+                builder.setTitle("Add New Modules");
+
+                builder.setMessage("Enter Code");
 
                 builder.setItems(R.array.tanaman, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         DatabaseHandler dbH = new DatabaseHandler(ListTanaman.this);
                         dbH.addTanaman(new Tanaman(which + 1));
                         ListTanaman.this.updateData();

@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.ui.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.ramadhan.robby.indoorgarden.R;
+import com.ramadhan.robby.indoorgarden.ui.BaseActivity;
+import com.ramadhan.robby.indoorgarden.utils.Constant;
 
 import java.util.Map;
 

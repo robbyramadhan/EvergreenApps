@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.ui.activeLists;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ramadhan.robby.indoorgarden.R;
+import com.ramadhan.robby.indoorgarden.model.Tanaman;
 
 /**
  * Created by Asus on 21/04/2016.

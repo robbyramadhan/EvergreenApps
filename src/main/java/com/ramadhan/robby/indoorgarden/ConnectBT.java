@@ -11,6 +11,9 @@ import android.os.ParcelUuid;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ramadhan.robby.indoorgarden.ui.activeListDetails.ListTanaman;
+import com.ramadhan.robby.indoorgarden.ui.modules.SensorRecord;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

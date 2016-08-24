@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

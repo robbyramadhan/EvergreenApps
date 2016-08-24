@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.ui.activeListDetails;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.ramadhan.robby.indoorgarden.ui.activeLists.InstruksiDetail;
+import com.ramadhan.robby.indoorgarden.R;
+import com.ramadhan.robby.indoorgarden.ui.activeLists.AdapterInstruksi;
 
 public class InstructionList extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

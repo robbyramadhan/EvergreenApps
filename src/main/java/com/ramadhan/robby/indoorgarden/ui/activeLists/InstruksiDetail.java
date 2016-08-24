@@ -1,10 +1,12 @@
-package com.ramadhan.robby.indoorgarden;
+package com.ramadhan.robby.indoorgarden.ui.activeLists;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ramadhan.robby.indoorgarden.R;
 
 public class InstruksiDetail extends AppCompatActivity {
 
