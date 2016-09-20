@@ -8,31 +8,122 @@
     <string name="title_activity_instruction_list">Instruction List</string>
     <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="title_activity_signup">Sign up</string>
-    <string name="action_logout">Logout</string>
+    <!--
+
+   == Base Strings For the App ==
+
+    -->
+    <string name="pager_title_shopping_lists">Shopping Lists</string>
+    <string name="pager_title_meals">Meals</string>
+    <string name="remove_item_option">Remove Item</string>
+    <string name="positive_button_create">Create</string>
+    <string name="text_you">You</string>
+
 
     <!-- Base Error Strings-->
     <string name="log_error_updating_data">Error updating data: </string>
     <string name="log_error_the_read_failed">The read failed: </string>
     <string name="log_error_occurred">"Error occurred: "</string>
 
-    <!-- Instructions and Loading Text -->
-    <string name="progress_dialog_loading">Loading…</string>
-    <string name="progress_dialog_authenticating_with_firebase">Authenticating with Firebase…</string>
-    <string name="progress_dialog_creating_user_with_firebase">Attempting to create account…</string>
-    <string name="progress_dialog_check_inbox">Please check your inbox for your password</string>
+    <!-- Menu Strings -->
+    <string name="action_logout">Logout</string>
+    <string name="action_share_list">Share List</string>
+    <string name="action_sort">Sort</string>
+    <string name="action_remove_list">Remove list</string>
+    <string name="action_archive">Archive</string>
+
+
+    <!--
+
+    == Active List Strings ==
+
+     -->
+    <!-- Add List Dialog-->
+    <string name="hint_add_modules_code">add modules</string>
+
+    <!-- List of Shopping Lists Strings -->
+    <string name="created_by">Created by </string>
+    <string name="person_shopping">%d person shopping</string>
+    <string name="people_shopping">%d people shopping</string>
+
+
+    <!--
+
+     == Active List Details Strings ==
+
+      -->
+    <!-- Activity Title  -->
+    <string name="title_activity_list_details">List Details</string>
+
+    <!-- Menu Items -->
+    <string name="action_edit_list_name">Edit list name</string>
+
+    <!-- Edit List and Add Item Dialogs -->
+    <string name="positive_button_add_list_item">Add item</string>
+    <string name="positive_button_edit_item">Edit name</string>
+    <string name="negative_button_cancel">Cancel</string>
+    <string name="dialog_message_are_you_sure_remove_list">Are you sure you want to remove this list?</string>
+    <string name="dialog_message_are_you_sure_remove_item">Are you sure you want to remove this item?</string>
+
+    <!-- Shopping Mode -->
+    <string name="button_stop_shopping">Stop Shopping</string>
+    <string name="button_start_shopping">Start Shopping</string>
+
+    <string name="text_you_are_shopping">You are shopping</string>
+    <string name="text_you_and_other_are_shopping">You and %s are shopping</string>
+    <string name="text_you_and_number_are_shopping">You and %d others are shopping</string>
+
+    <string name="text_other_is_shopping">%s is shopping</string>
+    <string name="text_other_and_other_are_shopping">%1$s and %2$s are shopping</string>
+    <string name="text_other_and_number_are_shopping">%1$s and %2$d others are shopping</string>
+
+    <string name="bought_by">Bought by</string>
+
+    <!--
+
+     == Meal Strings ==
+
+      -->
+
+    <!-- Activity Title  -->
+    <string name="title_activity_meal_details">Meal Details</string>
+    <string name="title_activity_add_items_from_meal">Add Meal</string>
+
+    <!-- Add, Edit and Remove Meal Dialogs -->
+    <string name="hint_add_meal">Create a meal</string>
+    <string name="dialog_title_remove_meal">Remove meal</string>
+    <string name="dialog_message_are_you_sure_remove_meal">Are you sure you want to remove this meal?</string>
+    <string name="hint_enter_meal_name">Enter meal name</string>
+
+
+    <!--
+
+     == Archived List Strings ==
+
+      -->
+    <!-- Activity Titles  -->
+    <string name="title_activity_archived_lists">Archived Lists</string>
+    <string name="title_activity_archived_list_details">Archived List Details</string>
+
+    <!-- Archive Dialogs  -->
+    <string name="dialog_title_copy_list">Copy List</string>
+    <string name="dialog_title_archive_list">Archive list</string>
+    <string name="dialog_message_are_you_sure_archive_list">Are you sure you want to archive this list?</string>
+    <string name="dialog_message_do_you_want_to_copy">Do you want to copy this list?</string>
+    <string name="toast_shopping_list_was_archived">Shopping List %s was archived.</string>
+
+
+    <!-- Archived Lists in Active Lists -->
+    <string name="button_footer_archived_lists">Archived Lists</string>
+
+
+    <!--
+
+     == Login and Create Account Strings ==
+
+      -->
+    <!-- Activity Titles  -->
+    <string name="title_activity_create_account">Create Account</string>
 
     <!-- Login and Create Account Screen  -->
     <string name="text_dont_have_account">Don\'t have an account?</string>
@@ -45,6 +136,13 @@
     <string name="hint_enter_username">Enter your name</string>
     <string name="hint_enter_password">Enter password</string>
     <string name="image_view_logo_image">Logo Image</string>
+
+
+    <!-- Instructions and Loading Text -->
+    <string name="progress_dialog_loading">Loading…</string>
+    <string name="progress_dialog_authenticating_with_firebase">Authenticating with Firebase…</string>
+    <string name="progress_dialog_creating_user_with_firebase">Attempting to create account…</string>
+    <string name="progress_dialog_check_inbox">Please check your inbox for your password</string>
 
     <!-- Errors -->
     <string name="dialog_title_error">Error</string>
@@ -68,10 +166,55 @@
         Check out : https://console.developers.google.com/project. Also make sure you have all the proper
     gradle dependencies</string>
 
+
     <!-- OAuth Format -->
     <string name="oauth2_format">oauth2:%s</string>
 
     <!-- Log Messages -->
     <string name="log_message_password_changed_successfully">Password changed successfully from temporary password to </string>
     <string name="log_message_auth_successful">auth successful.</string>
+
+    <!--
+
+     == Sharing Strings ==
+
+      -->
+    <!-- Activity Titles -->
+    <string name="title_activity_share_list">Share List</string>
+    <string name="title_activity_add_friend">Add Friend</string>
+
+    <!-- Add a friend -->
+    <string name="hint_enter_friends_email">Enter your friend\'s email</string>
+    <string name="text_add_friend">Add New Friend</string>
+
+    <!-- Toast Errors -->
+    <string name="toast_is_already_your_friend">%s is already your friend!</string>
+    <string name="toast_you_cant_add_yourself">You can\'t add yourself as a friend.</string>
+
+
+    <!--
+
+    == Settings Strings ==
+
+    -->
+
+    <!-- Titles for Sort-->
+    <string name="pref_title_sort_lists">Lists ordering</string>
+
+    <!-- Preference Name -->
+    <string name="pref_name_sort_order_lists">pref_sort_order_lists</string>
+
+    <!-- Ordering Choices Labels : Lists -->
+    <string name="pref_sort_list_label_sortType">Order by</string>
+    <string name="pref_sort_list_label_publish_time_entry">Publish Time</string>
+    <string name="pref_sort_list_label_list_name_entry">List Name</string>
+    <string name="pref_sort_list_label_owner_entry">Owner Email</string>
+    <string name="pref_sort_list_label_most_recently_changed_entry">Most Recently Changed</string>
+
+
+    <!-- Values -->
+    <string name="sort_by_publish_time_value">orderByPushKey</string>
+    <string name="sort_by_list_name_value">listName</string>
+    <string name="sort_by_owner_value">owner</string>
+    <string name="sort_by_most_recently_changed_value">timestampLastChangedReverse/timestamp</string>
 </resources>

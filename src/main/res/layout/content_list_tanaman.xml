@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.activeListDetails.ListTanaman"
-    tools:showIn="@layout/activity_list_tanaman">
+    tools:context=".ui.activeListDetails.ListModules"
+    tools:showIn="@layout/activity_list_modules">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listTanaman"
+        android:id="@+id/listModules"
         android:dividerHeight="0dp"
         android:divider="@null"
         android:scrollbars="none"
@@ -21,13 +21,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="It seems like you don't have any plants yet! Try to add one by tapping the + button on the bottom right corner."
+        android:text="It seems like you don't have any modules yet! Try to add one by tapping the + button on the bottom right corner."
         android:textAlignment="center"
         android:padding="16dp"
         android:textSize="24dp"
         android:textColor="@android:color/darker_gray"
         android:gravity="center_vertical"
-        android:id="@+id/noPlantText"
+        android:id="@+id/noModulesText"
         android:visibility="invisible"/>
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.activeListDetails.DetailTanaman"
+    tools:context=".ui.activeListDetails.DetailModules"
     android:clipToPadding="false">
 
     <android.support.design.widget.AppBarLayout
@@ -104,7 +104,7 @@
                             android:layout_height="wrap_content"
                             android:text="5.6"
                             android:textSize="32dp"
-                            android:id="@+id/airpH"
+                            android:id="@+id/pH"
                             android:textColor="@android:color/white"
                             android:layout_marginLeft="16dp"/>
                     </LinearLayout>
@@ -145,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:text="0.8 mS"
                             android:textSize="32dp"
-                            android:id="@+id/airElectroConductivity"
+                            android:id="@+id/EC"
                             android:textColor="@android:color/white"
                             android:layout_marginLeft="16dp"/>
                     </LinearLayout>
@@ -208,7 +208,7 @@
                             android:layout_height="wrap_content"
                             android:text="23 \u2103"
                             android:textSize="32dp"
-                            android:id="@+id/soilTemperature"
+                            android:id="@+id/solutionTemperature"
                             android:textColor="@android:color/white"
                             android:layout_marginLeft="16dp"/>
                     </LinearLayout>
@@ -305,13 +305,13 @@
                     android:layout_below="@+id/tulisanWavelength"
                     android:layout_toRightOf="@id/gambarLampu"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/panjangGelombang"/>
+                    android:id="@+id/lightIntensity"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nm"
-                    android:layout_toRightOf="@+id/panjangGelombang"
-                    android:layout_alignBottom="@+id/panjangGelombang"/>
+                    android:layout_toRightOf="@+id/lightIntensity"
+                    android:layout_alignBottom="@+id/lightIntensity"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

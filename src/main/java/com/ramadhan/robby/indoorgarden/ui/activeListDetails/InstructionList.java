@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.ramadhan.robby.indoorgarden.ui.activeLists.InstruksiDetail;
 import com.ramadhan.robby.indoorgarden.R;
 import com.ramadhan.robby.indoorgarden.ui.activeLists.AdapterInstruksi;
 
@@ -85,13 +84,13 @@ public class InstructionList extends AppCompatActivity
         int position = item.getItemId();
         switch (position){
             case R.id.nav_latestPlan : {
-                Intent intent = new Intent(this, DetailTanaman.class);
-                intent.putExtra("indeksTanaman", ListTanaman.arrayTanaman.size() - 1);
+                Intent intent = new Intent(this, DetailModules.class);
+                intent.putExtra("indeksTanaman", ListModules.arrayModules.size() - 1);
                 startActivity(intent);
             }
             break;
             case R.id.nav_list : {
-                Intent intent = new Intent(this, ListTanaman.class);
+                Intent intent = new Intent(this, ListModules.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }

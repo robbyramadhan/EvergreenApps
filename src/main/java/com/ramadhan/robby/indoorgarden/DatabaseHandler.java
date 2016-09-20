@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.ramadhan.robby.indoorgarden.ui.activeListDetails.ListTanaman;
-import com.ramadhan.robby.indoorgarden.model.Tanaman;
+import com.ramadhan.robby.indoorgarden.ui.activeListDetails.ListModules;
+import com.ramadhan.robby.indoorgarden.model.Modules;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +21,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "tanamanManager";
 
-    private static final String TABLE_TANAMAN = "tanaman";
+    private static final String TABLE_MODULES = "modules";
 
-    private static final String ID_TANAMAN = "id";
-    private static final String NAMA_TANAMAN = "nama";
-    private static final String TANGGAL_TANAMAN = "tanggal";
+    private static final String ID_MODULES = "id";
+    private static final String NAMA_MODULES = "nama";
+    private static final String TANGGAL_MODULES = "tanggal";
 
     public DatabaseHandler(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,54 +33,54 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_TANAMAN + " (" +
-                ID_TANAMAN + " INTEGER PRIMARY KEY, " +
-                NAMA_TANAMAN + " TEXT, " +
-                TANGGAL_TANAMAN + " TEXT )";
+        String createTable = "CREATE TABLE " + TABLE_MODULES + " (" +
+                ID_MODULES + " INTEGER PRIMARY KEY, " +
+                NAMA_MODULES + " TEXT, " +
+                TANGGAL_MODULES + " TEXT )";
         db.execSQL(createTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_TANAMAN);
+        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_MODULES);
         onCreate(db);
     }
 
-    public void addTanaman(Tanaman tanaman){
+    public void addTanaman(Modules tanaman){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(NAMA_TANAMAN, tanaman.namaTanaman);
-        values.put(TANGGAL_TANAMAN, tanaman.tanggalTanaman);
+        values.put(NAMA_MODULES, tanaman.getPlantName());
+        values.put(TANGGAL_MODULES, tanaman.getPlantDate());
 
-        db.insert(TABLE_TANAMAN, null, values);
+        db.insert(TABLE_MODULES, null, values);
         db.close();
     }
 
-    public Tanaman[] readAllTanaman(){
-        List<Tanaman> listTanaman = new ArrayList<Tanaman>();
+    public Modules[] readAllModules(){
+        List<Modules> listModules = new ArrayList<Modules>();
 
-        String selectQuery = "SELECT * FROM " + TABLE_TANAMAN;
+        String selectQuery = "SELECT * FROM " + TABLE_MODULES;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        ListTanaman.arrayTanaman.clear();
+        ListModules.arrayModules.clear();
 
         if(cursor.moveToFirst()){
             do {
-                Tanaman tanaman = new Tanaman(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
-                listTanaman.add(tanaman);
-                ListTanaman.arrayTanaman.add(tanaman);
+                Modules tanaman = new Modules(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+                listModules.add(tanaman);
+                ListModules.arrayModules.add(tanaman);
             } while (cursor.moveToNext());
         }
         db.close();
-        return listTanaman.toArray(new Tanaman[listTanaman.size()]);
+        return listModules.toArray(new Modules[listModules.size()]);
     }
 
-    public void deleteTanaman(Tanaman tanaman){
+    public void deleteTanaman(Modules tanaman){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TANAMAN, ID_TANAMAN + " = ?", new String[]{ String.valueOf(tanaman.id) });
+        db.delete(TABLE_MODULES, ID_MODULES + " = ?", new String[]{ String.valueOf(tanaman.getId()) });
         db.close();
     }
 }

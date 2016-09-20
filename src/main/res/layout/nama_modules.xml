@@ -38,12 +38,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LETTUCE"
+                android:text="Modules"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:textSize="20dp"
+                android:id="@+id/namaModules"
+                android:layout_below="@id/gambarTanaman"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lettuce"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"
                 android:textSize="20dp"
                 android:id="@+id/namaTanaman"
-                android:layout_below="@id/gambarTanaman"/>
+                android:layout_below="@id/gambarTanaman"
+                android:layout_toRightOf="@id/namaModules" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

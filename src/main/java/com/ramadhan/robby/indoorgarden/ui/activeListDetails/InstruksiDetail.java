@@ -1,4 +1,4 @@
-package com.ramadhan.robby.indoorgarden.ui.activeLists;
+package com.ramadhan.robby.indoorgarden.ui.activeListDetails;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

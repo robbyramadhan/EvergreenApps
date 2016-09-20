@@ -19,19 +19,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.client.Firebase;
-import com.ramadhan.robby.indoorgarden.ui.activeLists.AdapterTanaman;
 import com.ramadhan.robby.indoorgarden.DatabaseHandler;
 import com.ramadhan.robby.indoorgarden.R;
-import com.ramadhan.robby.indoorgarden.model.Tanaman;
+import com.ramadhan.robby.indoorgarden.model.Modules;
+import com.ramadhan.robby.indoorgarden.ui.activeLists.AdapterTanaman;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListTanaman extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ListModules extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static List<Tanaman> arrayTanaman = new ArrayList<Tanaman>();
+    public static List<Modules> arrayModules = new ArrayList<Modules>();
 
-    AdapterTanaman adapterTanaman;
+    AdapterTanaman adapterModules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,38 +39,45 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
 
         Firebase.setAndroidContext(this);
 
-        setContentView(R.layout.activity_list_tanaman);
+        setContentView(R.layout.activity_list_modules);
 
+        /**
+         * Setup toolbar
+         */
         Toolbar toolbar = (Toolbar) findViewById(R.id.listToolbar);
-        toolbar.setTitle("Add Your Plants");
+        toolbar.setTitle("Add Your Modules");
         setSupportActionBar(toolbar);
 
+        /**
+         * Setup Navigation drawer
+         */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerList);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        /**
+         * Setup Navigation View
+         */
         NavigationView navigationView = (NavigationView) findViewById(R.id.list_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        /**
+         * Setup FloatingButton
+         */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ListTanaman.this);
-
-                builder.setTitle("Add New Modules");
-
-                builder.setMessage("Enter Code");
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(ListModules.this);
+                builder.setTitle("Add New Plant");
                 builder.setItems(R.array.tanaman, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
-                        DatabaseHandler dbH = new DatabaseHandler(ListTanaman.this);
-                        dbH.addTanaman(new Tanaman(which + 1));
-                        ListTanaman.this.updateData();
+                        DatabaseHandler dbH = new DatabaseHandler(ListModules.this);
+                        dbH.addTanaman(new Modules(which+1));
+                        ListModules.this.updateData();
                         dialog.dismiss();
                     }
                 });
@@ -84,54 +91,66 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
             }
         });
 
+        /**
+         * cek modules list
+         */
         DatabaseHandler dbH = new DatabaseHandler(this);
-        Tanaman[] tanamans = dbH.readAllTanaman();
-        if (tanamans.length == 0) {
-            TextView noPlant = (TextView) findViewById(R.id.noPlantText);
-            noPlant.setVisibility(View.VISIBLE);
+        Modules[] modules = dbH.readAllModules();
+        if (modules.length == 0) {
+            TextView noModules = (TextView) findViewById(R.id.noModulesText);
+            noModules.setVisibility(View.VISIBLE);
         }
 
-        ListView listTanaman = (ListView) findViewById(R.id.listTanaman);
-        adapterTanaman = new AdapterTanaman(this, R.layout.nama_tanaman, tanamans);
-        listTanaman.setAdapter(adapterTanaman);
+        /**
+         * create list modules layout
+         */
+        ListView listModules = (ListView) findViewById(R.id.listModules);
+        adapterModules = new AdapterTanaman(this, R.layout.nama_modules, modules);
+        listModules.setAdapter(adapterModules);
 
-        listTanaman.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /**
+         * put listener in modules, move to detail modules if the user click the list
+         */
+        listModules.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListTanaman.this, DetailTanaman.class);
-                intent.putExtra("indeksTanaman", position);
+                Intent intent = new Intent(ListModules.this, DetailModules.class);
+                intent.putExtra("indeksModules", position);
                 startActivity(intent);
             }
         });
 
-        listTanaman.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        /**
+         * cek modules list
+         */
+        listModules.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 final int pos = position;
-                AlertDialog.Builder builder = new AlertDialog.Builder(ListTanaman.this);
-                builder.setTitle(arrayTanaman.get(position).namaTanaman + " " + arrayTanaman.get(position).tanggalTanaman);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ListModules.this);
+                builder.setTitle("Modules" + " " + "Tanggal");
                 builder.setItems(R.array.contextMenu, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case 0: {
-                                Intent intent = new Intent(ListTanaman.this, DetailTanaman.class);
-                                intent.putExtra("indeksTanaman", pos);
+                                Intent intent = new Intent(ListModules.this, DetailModules.class);
+                                intent.putExtra("indeksModules", pos);
                                 startActivity(intent);
                             }
                             break;
                             case 1:
                                 break;
                             case 2: {
-                                AlertDialog.Builder builder2 = new AlertDialog.Builder(ListTanaman.this);
-                                builder2.setTitle("Remove plant?");
-                                builder2.setMessage("You will remove plant " + arrayTanaman.get(pos).namaTanaman +
-                                        " " + arrayTanaman.get(pos).tanggalTanaman + ". This action cannot be undone");
+                                AlertDialog.Builder builder2 = new AlertDialog.Builder(ListModules.this);
+                                builder2.setTitle("Remove modules?");
+                                builder2.setMessage("You will remove modules " + "Nama Modules" +
+                                        " " + "Tanggal Module" + ". You will need to entry the modules code to acces the modules in the future");
                                 builder2.setPositiveButton("Remove", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        DatabaseHandler dbH = new DatabaseHandler(ListTanaman.this);
-                                        dbH.deleteTanaman(ListTanaman.arrayTanaman.get(pos));
+                                        DatabaseHandler dbH = new DatabaseHandler(ListModules.this);
+                                        dbH.deleteTanaman(ListModules.arrayModules.get(pos));
                                         updateData();
                                     }
                                 });
@@ -178,21 +197,21 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
     }
 
     public void updateData() {
-        ListView listTanaman = (ListView) findViewById(R.id.listTanaman);
+        ListView listTanaman = (ListView) findViewById(R.id.listModules);
         listTanaman.invalidateViews();
 
         DatabaseHandler dbH = new DatabaseHandler(this);
 
-        Tanaman[] tanamans = dbH.readAllTanaman();
+        Modules[] tanamans = dbH.readAllModules();
         if (tanamans.length == 0) {
-            TextView noPlant = (TextView) findViewById(R.id.noPlantText);
+            TextView noPlant = (TextView) findViewById(R.id.noModulesText);
             noPlant.setVisibility(View.VISIBLE);
         } else {
-            TextView noPlant = (TextView) findViewById(R.id.noPlantText);
+            TextView noPlant = (TextView) findViewById(R.id.noModulesText);
             noPlant.setVisibility(View.INVISIBLE);
         }
-        adapterTanaman = new AdapterTanaman(this, R.layout.nama_tanaman, tanamans);
-        listTanaman.setAdapter(adapterTanaman);
+        adapterModules = new AdapterTanaman(this, R.layout.nama_modules, tanamans);
+        listTanaman.setAdapter(adapterModules);
     }
 
     @Override
@@ -200,8 +219,8 @@ public class ListTanaman extends AppCompatActivity implements NavigationView.OnN
         int position = menuItem.getItemId();
         switch (position) {
             case R.id.nav_latestPlan: {
-                Intent intent = new Intent(this, DetailTanaman.class);
-                intent.putExtra("indeksTanaman", ListTanaman.arrayTanaman.size() - 1);
+                Intent intent = new Intent(this, DetailModules.class);
+                intent.putExtra("indeksTanaman", ListModules.arrayModules.size() - 1);
                 startActivity(intent);
             }
             break;
